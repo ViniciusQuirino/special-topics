@@ -7,46 +7,33 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            DateTime d1 = DateTime.Now;
-            Console.WriteLine(d1);
-            Console.WriteLine(d1.Ticks); //base para datetimenow
+            TimeSpan t1 = new TimeSpan(0, 1, 30);
+            Console.WriteLine(t1);
+            Console.WriteLine(t1.Ticks);
 
-            DateTime d2 = new DateTime();
+            TimeSpan t2 = new TimeSpan(900000000L);
+            Console.WriteLine(t2);
 
-            // DateTime(ano, mes, dia)
-            // DateTime(ano, mes, dia, hora, minuto, segundo)
-            // DateTime(ano, mes, dia, hora, minuto, segundo, milissegundo)
+            TimeSpan ts1 = new TimeSpan(1, 2, 30); // 1 hora, 2 minutos, 30 segundos
+            TimeSpan ts2 = new TimeSpan(2, 5, 30, 40); // 2 dias, 5 horas, 30 minutos, 40 segundos
+            TimeSpan ts3 = new TimeSpan(3, 4, 5, 6, 700); // 3 dias, 4 horas, 5 minutos, 6 segundos, 700 milissegundos
 
-            DateTime a1 = new DateTime(2000, 8, 15);
-            DateTime b2 = new DateTime(2000, 8, 15, 13, 5, 58);
-            DateTime d3 = new DateTime(2000, 8, 15, 13, 5, 58, 275);
+            Console.WriteLine(ts1);
+            Console.WriteLine(ts2);
+            Console.WriteLine(ts3.Ticks);
+
+            TimeSpan a1 = TimeSpan.FromDays(1.5); //um dia e meio
+            TimeSpan a2 = TimeSpan.FromHours(1.5); //uma hora e meia
+            TimeSpan a3 = TimeSpan.FromMinutes(1.5);
+            TimeSpan a4 = TimeSpan.FromSeconds(1.5);
+            TimeSpan a5 = TimeSpan.FromMilliseconds(1.5);
+            TimeSpan a6 = TimeSpan.FromTicks(900000000L); //apenas inteiros
             Console.WriteLine(a1);
-            Console.WriteLine(b2);
-            Console.WriteLine(d3);
-
-            DateTime m1 = DateTime.Now;
-            DateTime m2 = DateTime.UtcNow;
-            DateTime m3 = DateTime.Today;
-            Console.WriteLine(m1);
-            Console.WriteLine(m2);
-            Console.WriteLine(m3);
-
-            DateTime n1 = DateTime.Parse("2000-08-15");
-            DateTime n2 = DateTime.Parse("2000-08-15 13:05:58");
-            DateTime n3 = DateTime.Parse("15/08/2000");
-            DateTime n4 = DateTime.Parse("15/08/2000 13:05:58");
-            Console.WriteLine(n1);
-            Console.WriteLine(n2);
-            Console.WriteLine(n3);
-            Console.WriteLine(n4);
-
-
-            DateTime e1 = DateTime.ParseExact("2000-08-15", "yyyy-MM-dd",
-CultureInfo.InvariantCulture);
-            DateTime e2 = DateTime.ParseExact("15/08/2000 13:05:58", "dd/MM/yyyy HH:mm:ss",
-            CultureInfo.InvariantCulture);
-            Console.WriteLine(e1);
-            Console.WriteLine(e2);
+            Console.WriteLine(a2);
+            Console.WriteLine(a3);
+            Console.WriteLine(a4);
+            Console.WriteLine(a5);
+            Console.WriteLine(a6);
         }
     }
 }
